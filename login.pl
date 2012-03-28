@@ -10,7 +10,7 @@ my $pwd = shift || 'mingwei********';
 my $urlstr = "http://10.3.8.150/cgi-bin/do_login";
 
 my $pwdMD5 =  md5_hex(encode("gb2312",$pwd));
-my $cutMD5 = substr $pwdMD5,8;
+my $cutMD5 = substr $pwdMD5,8,16;
 
 print "$pwdMD5\n$cutMD5\n";
 
@@ -29,4 +29,4 @@ $req->content($data);
 my $res = $ua->request($req);
 
 print decode "utf-8",$res;
-
+print "\n";
